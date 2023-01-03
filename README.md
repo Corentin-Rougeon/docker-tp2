@@ -68,18 +68,19 @@ services:
   node:
     image: ma_super_app
     ports:
-    - "3000:3000"
+      - "3000:3000"
     depends_on:
       - mysql
     environment:
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: toor
       DATABASE_NAME: database
+      DATABASE_HOST: mysql
 
   mysql:
-    image: mysql
+    image: mysql:5.7
     ports:
-    - "3306:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: toor
       MYSQL_DATABASE: database
